@@ -7,20 +7,18 @@ package com.blecua84;
  */
 public class FizzBuzz {
 
-    public String apply(int number) {
+    private boolean isFizz(int number) {
+        return number % 3 == 0;
+    }
 
-        String result = String.valueOf(number);
+    private boolean isBuzz(int number) {
+        return number % 5 == 0;
+    }
 
-        if(number > 0) {
-            if (number % 15 == 0)
-                result = "FizzBuzz";
-            else if(number % 3 == 0)
-                result = "Fizz";
-            else if(number % 5 == 0)
-                result = "Buzz";
-        }
-
-
-        return result;
+    public Object execute(int number) {
+        if(isFizz(number) && isBuzz(number)) return "FizzBuzz";
+        if(isFizz(number)) return "Fizz";
+        if(isBuzz(number)) return "Buzz";
+        else return number;
     }
 }
